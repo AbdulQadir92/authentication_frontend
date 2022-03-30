@@ -10,7 +10,10 @@ const Header = () => {
             {user ? (
                 <button onClick={logoutUser}>Logout</button>
             ):(
-                <Link to="/login">Login</Link>
+                <>
+                    <Link to="/register" style={{ marginRight: '20px' }}>Register</Link>
+                    <Link to="/login">Login</Link>
+                </>
             )}
 
             {user && <p>Hello, {user.username}</p>}

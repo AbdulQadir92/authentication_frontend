@@ -13,12 +13,15 @@ export const AuthProvider = ({ children }) => {
 
     const navigate = useNavigate()
 
-    const loginUser = async (e) => {
+    const loginUser = async (e, username = "", password = "") => {
         e.preventDefault();
         let response = await fetch('http://127.0.0.1:8000/api/token/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 'username': e.target.username.value, 'password': e.target.password.value })
+            body: JSON.stringify({
+                'username': username ? username : e.target.username.value,
+                'password': password ? password : e.target.password.value
+            })
         })
 
         let data = await response.json()

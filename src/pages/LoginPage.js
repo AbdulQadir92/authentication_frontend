@@ -4,13 +4,14 @@ import AuthContext from '../context/AuthContext'
 const LoginPage = () => {
     let { loginUser } = useContext(AuthContext)
     return (
-        <div>
+        <>
+            <h4>Login</h4>
             <form onSubmit={loginUser}>
-                <input type="text" name="username" placeholder="Enter username" required style={{ display: 'block', marginBottom: '10px', padding: '5px' }} />
-                <input type="password" name="password" placeholder="Enter password" required style={{ display: 'block', marginBottom: '10px', padding: '5px' }} />
-                <input type="submit" style={{ display: 'block', marginBottom: '10px', padding: '5px' }} />
+                <input type="text" name="username" className="form-control" placeholder="Enter username" required />
+                <input type="password" name="password" className="form-control" placeholder="Enter password" required />
+                <input type="submit" value="Login" className="form-control" />
             </form>
-        </div>
+        </>
     )
 }
 
